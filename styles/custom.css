@@ -46,6 +46,7 @@ body {
     grid-template-columns: repeat(3, 1fr); /* 3 columns */
     gap: 50px;
     padding: 20px;
+    margin: 50px;
 }
 
 .grid-container .grid-item {
