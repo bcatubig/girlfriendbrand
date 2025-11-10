@@ -41,27 +41,24 @@ body {
     align-items: flex-start; /* align top edges */
 }
 
-./* Grid container */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 20px;                              /* space between squares */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   padding: 20px;
-  margin: 0 auto;                         /* center container */
+  margin: 0 auto;        /* center grid */
+  max-width: 900px;       /* limit overall width */
 }
 
-/* Grid item */
 .grid-item {
   background-color: #ddd;
   border: 1px solid #999;
-  aspect-ratio: 1 / 1;  /* ensures perfect square */
-  overflow: hidden;      /* hides image overflow */
-  padding: 0;            /* remove inner space */
-  margin: 0;             /* remove outer space inside square */
-  position: relative;    /* required for absolute image sizing */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
-/* Images */
 .grid-item img {
   width: 100%;
   height: 100%;
