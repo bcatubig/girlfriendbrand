@@ -41,28 +41,32 @@ body {
     align-items: flex-start; /* align top edges */
 }
 
+./* Grid container */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px;                              /* space between squares */
   padding: 20px;
-  margin: 50px;
+  margin: 0 auto;                         /* center container */
 }
 
-.grid-container .grid-item {
+/* Grid item */
+.grid-item {
   background-color: #ddd;
   border: 1px solid #999;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  position: relative; /* helps the image size correctly */
+  aspect-ratio: 1 / 1;  /* ensures perfect square */
+  overflow: hidden;      /* hides image overflow */
+  padding: 0;            /* remove inner space */
+  margin: 0;             /* remove outer space inside square */
+  position: relative;    /* required for absolute image sizing */
 }
 
-.grid-container .grid-item img {
-  width: 100% !important;    /* force it to match parent width */
-  height: 100% !important;   /* keep image filling the square */
-  object-fit: cover !important; /* keep it from cropping */
+/* Images */
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the square, crops if needed */
   display: block;
-  max-width: 100%;
 }
 
 
