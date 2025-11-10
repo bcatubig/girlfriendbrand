@@ -1,46 +1,55 @@
 /* -----------------------------------------------------------
    Global Reset + Base Layout
 ----------------------------------------------------------- */
-body {
+html, body {
+    width: 100%;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    box-sizing: border-box;
 }
 
 /* -----------------------------------------------------------
    Header + Logo
 ----------------------------------------------------------- */
 .header {
+    width: 100%;
+    max-width: 100vw;       /* ensures full width on mobile */
     height: 75px;
     background-color: #bebebe;
     display: flex;
     align-items: center;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.site-logo {
-    height: 80px;
+.site-logo img {
+    max-height: 75px;       /* scales on desktop */
     width: auto;
-    margin: 0;
+    display: block;
 }
 
 /* -----------------------------------------------------------
    Footer + Navigation
 ----------------------------------------------------------- */
 .footer {
-    margin-top: auto; /* ensure footer stays bottom */
+    margin-top: auto; /* keep footer at bottom */
 }
 
 .footer nav {
+    width: 100%;
+    max-width: 100vw;       /* full width on mobile */
+    background-color: grey;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;        /* wrap links on small screens */
     height: 75px;
     padding: 0 20px;
-    background: grey;
+    box-sizing: border-box;
 }
 
 .footer nav a {
@@ -119,26 +128,23 @@ body {
 ----------------------------------------------------------- */
 @media (max-width: 600px) {
 
+    /* Header */
     .header {
         height: auto;
-        width: 100vw;       /* full viewport width */
-        min-width: 100%;
         padding: 0 10px;
         justify-content: flex-start;
         align-items: center;
-        box-sizing: border-box;
-        background-color: #bebebe; /* ensure grey stretches fully */
+        width: 100vw;        /* full viewport width */
+        min-width: 100%;
     }
 
     .site-logo img {
-        max-height: 50px;   /* scales down logo */
+        max-height: 50px;     /* scale down on mobile */
         width: auto;
         display: block;
     }
-}
 
-
-    /* Grid pages — go to 1 column on phones */
+    /* Grid pages — 1 column on phones */
     .grid-container {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -162,10 +168,12 @@ body {
         padding: 10px 0;
     }
 
-    /* Footer/nav always visible and not cramped */
+    /* Footer/nav */
     .footer nav {
         height: auto;
         padding: 10px;
+        width: 100vw;         /* full viewport width */
+        min-width: 100%;
         flex-wrap: wrap;
     }
 
