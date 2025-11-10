@@ -52,20 +52,15 @@ body {
 .grid-container .grid-item {
     background-color: #ddd;
     aspect-ratio: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 1px solid #999;
     font-size: 1.2rem;
-    width: 100%;
-    height: 100%;
+    overflow: hidden; /* prevents image overflow */
 }
 .grid-item img {
-  width: 100%;         /* make it fill the parent’s width */
-  height: auto;        /* maintain aspect ratio */
-  object-fit: contain;   /* or 'contain' if you don't want cropping */
-  max-width: 100%;     /* ensures it can shrink smaller than its natural size */
-  display: block;      /* removes unwanted inline spacing below image */
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* or 'cover' if you want it cropped */
+  display: block;
 }
 
 /* Left: Grid of images/items */
