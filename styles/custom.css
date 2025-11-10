@@ -47,7 +47,7 @@ body {
   gap: 20px;
   padding: 20px;
   margin: 0 auto;        /* center grid */
-  max-width: 900px;       /* limit overall width */
+  max-width: 1500x;       /* limit overall width */
 }
 
 .grid-item {
