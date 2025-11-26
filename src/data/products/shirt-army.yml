@@ -1,0 +1,9 @@
+title: "Army Green Shirtd"
+price: "$30"
+cover: ./images/army.jpg
+description: "Green army shirt"
+slug: "army-shirt"
+isDraft: false
+images:
+  - ./images/black-shirt.jpg
+
