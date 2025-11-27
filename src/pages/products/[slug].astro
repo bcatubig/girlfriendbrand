@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
 import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
@@ -13,7 +14,12 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { slug } = Astro.params;
+
 const product = await getEntry("products", slug);
+
+if (!product) {
+  return new Response(null, { status: 404 });
+}
 ---
 
 <BaseLayout>
