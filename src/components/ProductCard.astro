@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  product: CollectionEntry<"products">;
+}
+
+const { product } = Astro.props;
+
+const { title, category, cover, price_usd } = product.data;
+---
+
+<article class="card">
+  <Image class="card__image" src={cover} alt={title} width={600} height={400} />
+  <h2 class="card__title">{title}</h2>
+  <p class="card__price">{price_usd}</p>
+</article>
+
+<style>
+  .card {
+    display: grid;
+    gap: 1rem;
+    border-radius: var(--radius-2);
+    border: 1px solid;
+  }
+
+  .card__image {
+    border-top-left-radius: var(--radius-2);
+    border-top-right-radius: var(--radius-2);
+
+    width: 100%;
+    /* border: 1px solid; */
+  }
+
+  .card__title {
+    font-size: var(--font-size-0);
+  }
+</style>

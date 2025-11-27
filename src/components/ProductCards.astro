@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+import ProductCard from "./ProductCard.astro";
+
+const products = await getCollection("products");
+---
+
+<section class="products">
+  {products.map((product) => <ProductCard product={product} />)}
+</section>
+
+<style>
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+</style>

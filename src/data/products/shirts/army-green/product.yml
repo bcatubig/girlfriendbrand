@@ -1,8 +1,10 @@
-title: "Army Green Shirt"
-price: "$30"
-cover: https://placehold.co/600x400
-description: "Green army shirt"
-slug: "army-shirt"
-isDraft: false
+title: "Army Green"
+category: "shirts"
+sizes: []
+description: ""
+price_usd: 0
+cover: https://placehold.co/200x300
 images: []
-
+tags: []
+slug: ""
+isDraft: false
