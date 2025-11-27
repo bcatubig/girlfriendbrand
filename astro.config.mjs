@@ -20,6 +20,7 @@ export default defineConfig({
         provider: fontProviders.google(),
         name: "Homemade Apple",
         cssVariable: "--ff-homemade-apple",
+        weights: [400, 500, 600, 700, 800],
       },
     ],
     headingIdCompat: true,

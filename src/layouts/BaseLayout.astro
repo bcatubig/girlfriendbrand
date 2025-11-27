@@ -1,5 +1,6 @@
 ---
 const { title } = Astro.props;
+import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import "@styles/global.css";
 import { Font } from "astro:assets";
@@ -12,10 +13,13 @@ import { Font } from "astro:assets";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <Font cssVariable="--ff-raleway" preload />
     <Font cssVariable="--ff-pacifico" preload />
-    <title>{title}</title>
+    <title>{title} | Girlfriend Brand</title>
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

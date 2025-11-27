@@ -1,0 +1,21 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  description: string;
+
+  images: Array<ImageMetadata>;
+}
+
+const { title, description, images } = Astro.props;
+---
+
+<section aria-label="product">
+  <h2>{title}</h2>
+  <p>{description}</p>
+  {images.map((img) => (
+    <Image src=img alt="" width={400} height={400}  />
+  ))}
+</section>
