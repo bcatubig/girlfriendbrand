@@ -12,10 +12,9 @@ const products = await getCollection("products");
   <ul class="products">
     {
       products.map((product) => (
-        <li>
-          <p>{product.data.title}</p>
-          <p>{product.data.description}</p>
+        <li class="product">
           <Image
+            class="product__image"
             src={product.data.cover}
             width={400}
             height={400}
@@ -28,3 +27,9 @@ const products = await getCollection("products");
     }
   </ul>
 </BaseLayout>
+
+<style>
+  .product {
+    display: grid;
+  }
+</style>

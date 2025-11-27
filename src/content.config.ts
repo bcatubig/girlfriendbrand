@@ -9,11 +9,21 @@ const products = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      price: z.string(),
+      category: z.enum([
+        "accessories",
+        "jackets/vests",
+        "shirts",
+        "sweaters/hoodies",
+        "t-shirts",
+      ]),
+      sizes: z.array(z.enum(["xs", "s", "m", "l", "xl", "2xl"])),
+      price_usd: z.number(),
       description: z.string(),
       cover: image(),
-      slug: z.string(),
       images: z.array(image()),
+      tags: z.array(z.string()),
+      isDraft: z.boolean(),
+      slug: z.string(),
     }),
 });
 
