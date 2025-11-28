@@ -15,6 +15,7 @@ export default defineConfig({
         provider: fontProviders.google(),
         name: "Raleway",
         cssVariable: "--ff-raleway",
+        weights: [400, 500, 600, 700, 800],
       },
       {
         provider: fontProviders.google(),

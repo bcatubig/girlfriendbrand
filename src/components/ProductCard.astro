@@ -12,20 +12,21 @@ const { title, category, cover, price_usd, slug } = product.data;
 
 <article class="card">
   <a href={"/products/" + slug}>
-    <Image
-      class="card__image"
-      src={cover}
-      alt={title}
-      layout="constrained"
-      inferSize={true}
-    />
-  </a>
+    <Image class="card__image" src={cover} alt={title} layout="constrained" />
 
-  <h2 class="card__title">{title}</h2>
-  <p class="card__price">{price_usd}</p>
+    <div>
+      <h2 class="card__title">{title}</h2>
+      <p class="card__price">&dollar;{price_usd}</p>
+    </div>
+  </a>
 </article>
 
 <style>
+  a {
+    color: unset;
+    text-decoration: none;
+  }
+
   .card {
     display: grid;
     gap: 1rem;
@@ -34,18 +35,23 @@ const { title, category, cover, price_usd, slug } = product.data;
     justify-content: center;
     max-width: 350px; */
     /* border: 1px solid; */
+    max-width: 300px;
+    background: darkcyan;
   }
 
   .card__image {
-    border-radius: 20px;
-    /* border: 1px solid; */
-
-    /* width: 100%; */
-    /* max-inline-size: 800px; */
-    /* border: 1px solid; */
+    border-top-left-radius: var(--radius-2);
+    border-top-right-radius: var(--radius-2);
   }
 
   .card__title {
     font-size: var(--font-size-0);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .card__price {
+    font-size: var(--font-size-0);
+    font-weight: 600;
   }
 </style>
