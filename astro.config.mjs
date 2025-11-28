@@ -1,10 +1,12 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
+import { imageService } from "@unpic/astro/service";
 
 // https://astro.build/config
 export default defineConfig({
   image: {
-    domains: ["astro.build"],
+    domains: ["astro.build", "placehold.co"],
+    service: imageService(),
   },
   experimental: {
     contentIntellisense: true,

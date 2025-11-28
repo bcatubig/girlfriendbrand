@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.11",
     "@astrojs/node": "^9.5.1",
+    "@unpic/astro": "^1.0.1",
     "astro": "^5.16.0",
     "autoprefixer": "^10.4.22",
     "cssnano": "^7.1.2",
