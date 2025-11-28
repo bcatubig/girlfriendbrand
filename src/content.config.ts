@@ -3,7 +3,7 @@ import { glob, file } from "astro/loaders";
 
 const products = defineCollection({
   loader: glob({
-    pattern: ["**/.md", "**/*.mdx", "**/*.yml", "!empty.yml"],
+    pattern: ["**/*.md"],
     base: "./src/data/products",
   }),
   schema: ({ image }) =>
@@ -18,12 +18,12 @@ const products = defineCollection({
       ]),
       sizes: z.array(z.enum(["xs", "s", "m", "l", "xl", "2xl"])),
       price_usd: z.number(),
-      description: z.string(),
       cover: image(),
       images: z.array(image()),
       tags: z.array(z.string()),
       isDraft: z.boolean(),
       slug: z.string(),
+      specifications: z.array(z.string()),
     }),
 });
 

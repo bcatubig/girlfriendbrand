@@ -6,7 +6,13 @@ const products = await getCollection("products");
 ---
 
 <section class="products">
-  {products.map((product) => <ProductCard product={product} />)}
+  {
+    products.map((product) => (
+      <a href={"/products/" + product.data.slug}>
+        <ProductCard product={product} />
+      </a>
+    ))
+  }
 </section>
 
 <style>

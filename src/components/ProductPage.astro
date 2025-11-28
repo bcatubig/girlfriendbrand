@@ -1,13 +1,23 @@
 ---
+import BaseLayout from "@layouts/BaseLayout.astro";
 import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
 
 interface Props {
   product: CollectionEntry<"products">;
 }
 const { product } = Astro.props;
+const { Content } = await render(product);
 ---
 
-<article>
-  <h2>{product.data.title}</h2>
-  <p>{product.data.description}</p>
-</article>
+<BaseLayout>
+  <article>
+    <h2>{product.data.title}</h2>
+    <Content />
+
+    <h3>Specifications</h3>
+    <ul>
+      {product.data.specifications.map((spec) => <li>{spec}</li>)}
+    </ul>
+  </article>
+</BaseLayout>

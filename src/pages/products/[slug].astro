@@ -20,6 +20,7 @@ export const getStaticPaths = (async () => {
 
 const { slug } = Astro.params;
 const { product } = Astro.props;
+console.log(product);
 ---
 
 <ProductPage product={product} />
