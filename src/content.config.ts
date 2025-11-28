@@ -16,7 +16,6 @@ const products = defineCollection({
         "sweaters/hoodies",
         "t-shirts",
       ]),
-      sizes: z.array(z.enum(["xs", "s", "m", "l", "xl", "2xl"])),
       price_usd: z.number(),
       cover: image(),
       images: z.array(image()),

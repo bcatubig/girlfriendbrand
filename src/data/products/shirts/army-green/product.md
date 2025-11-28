@@ -1,7 +1,6 @@
 ---
 title: "Army Green"
 category: "shirts"
-sizes: []
 price_usd: 30
 cover: ./images/army.jpg
 images: []
