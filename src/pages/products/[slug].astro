@@ -1,5 +1,6 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import type { GetStaticPaths } from "astro";
+import ProductPage from "@components/ProductPage.astro";
 import type { GetStaticPaths } from "astro";
 import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
@@ -7,17 +8,18 @@ import { getCollection } from "astro:content";
 export const getStaticPaths = (async () => {
   const products = await getCollection("products");
 
-  return products.map((product) => ({
-    params: { slug: product.data.slug },
-  }));
+  return products.map((product) => {
+    console.log(product);
+    return {
+      params: { slug: product.data.slug },
+      props: { product },
+    };
+  });
+  //return [];
 }) satisfies GetStaticPaths;
 
 const { slug } = Astro.params;
-console.log(slug);
-const product = await getEntry("products", slug);
+const { product } = Astro.props;
 ---
 
-<BaseLayout>
-  <h2>{product.data.title}</h2>
-  <p></p>
-</BaseLayout>
+<ProductPage product={product} />

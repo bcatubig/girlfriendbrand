@@ -11,7 +11,16 @@ const { title, category, cover, price_usd } = product.data;
 ---
 
 <article class="card">
-  <Image class="card__image" src={cover} alt={title} />
+  <Image
+    class="card__image"
+    src={cover}
+    alt={title}
+    width={400}
+    height={400}
+    layout="constrained"
+  />
+
+  <!-- <img src={cover} /> -->
   <h2 class="card__title">{title}</h2>
   <p class="card__price">{price_usd}</p>
 </article>
@@ -21,12 +30,12 @@ const { title, category, cover, price_usd } = product.data;
     display: grid;
     gap: 1rem;
     border-radius: var(--radius-2);
-    border: 1px solid;
+    max-width: 300px;
   }
 
   .card__image {
-    border-top-left-radius: var(--radius-2);
-    border-top-right-radius: var(--radius-2);
+    border-radius: 20px;
+    /* border: 1px solid; */
 
     /* width: 100%; */
     /* max-inline-size: 800px; */

@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  product: CollectionEntry<"products">;
+}
+const { product } = Astro.props;
+---
+
+<article>
+  <h2>{product.data.title}</h2>
+  <p>{product.data.description}</p>
+</article>

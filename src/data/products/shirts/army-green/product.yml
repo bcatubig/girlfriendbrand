@@ -1,9 +1,9 @@
 title: "Army Green"
 category: "shirts"
 sizes: []
-description: ""
+description: "A green army shirt"
 price_usd: 0
-cover: https://placehold.co/400x600
+cover: ./images/army.jpg
 images: []
 tags: []
 slug: "army-shirt"
