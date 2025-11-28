@@ -16,9 +16,8 @@ const { title, category, cover, price_usd, slug } = product.data;
       class="card__image"
       src={cover}
       alt={title}
-      width={350}
-      height={300}
       layout="constrained"
+      inferSize={true}
     />
   </a>
 
@@ -31,6 +30,10 @@ const { title, category, cover, price_usd, slug } = product.data;
     display: grid;
     gap: 1rem;
     border-radius: var(--radius-2);
+    /* align-items: center;
+    justify-content: center;
+    max-width: 350px; */
+    /* border: 1px solid; */
   }
 
   .card__image {

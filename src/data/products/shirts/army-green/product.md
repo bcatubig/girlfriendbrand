@@ -2,7 +2,7 @@
 title: "Army Green"
 category: "shirts"
 price_usd: 30
-cover: ./images/army.jpg
+cover: ./images/army.webp
 images: []
 tags: []
 slug: "army-shirt"
