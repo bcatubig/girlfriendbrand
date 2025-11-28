@@ -1,8 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
 import ProductPage from "@components/ProductPage.astro";
-import type { GetStaticPaths } from "astro";
-import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
 export const getStaticPaths = (async () => {
@@ -15,12 +13,9 @@ export const getStaticPaths = (async () => {
       props: { product },
     };
   });
-  //return [];
 }) satisfies GetStaticPaths;
 
-const { slug } = Astro.params;
 const { product } = Astro.props;
-console.log(product);
 ---
 
 <ProductPage product={product} />

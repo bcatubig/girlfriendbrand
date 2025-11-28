@@ -7,20 +7,21 @@ interface Props {
 
 const { product } = Astro.props;
 
-const { title, category, cover, price_usd } = product.data;
+const { title, category, cover, price_usd, slug } = product.data;
 ---
 
 <article class="card">
-  <Image
-    class="card__image"
-    src={cover}
-    alt={title}
-    width={350}
-    height={300}
-    layout="constrained"
-  />
+  <a href={"/products/" + slug}>
+    <Image
+      class="card__image"
+      src={cover}
+      alt={title}
+      width={350}
+      height={300}
+      layout="constrained"
+    />
+  </a>
 
-  <!-- <img src={cover} /> -->
   <h2 class="card__title">{title}</h2>
   <p class="card__price">{price_usd}</p>
 </article>

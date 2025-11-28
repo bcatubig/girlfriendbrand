@@ -15,9 +15,15 @@ const { Content } = await render(product);
     <h2>{product.data.title}</h2>
     <Content />
 
-    <h3>Specifications</h3>
+    <h3 class="specifications">Specifications</h3>
     <ul>
       {product.data.specifications.map((spec) => <li>{spec}</li>)}
     </ul>
   </article>
 </BaseLayout>
+
+<style>
+  .specifications {
+    font-size: var(--font-8);
+  }
+</style>
