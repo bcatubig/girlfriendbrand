@@ -2,12 +2,17 @@
 import { defineConfig, fontProviders } from "astro/config";
 import { imageService } from "@unpic/astro/service";
 
+import react from "@astrojs/react";
+import markdoc from "@astrojs/markdoc";
+import keystatic from "@keystatic/astro";
+
 // https://astro.build/config
 export default defineConfig({
   image: {
     domains: ["astro.build", "placehold.co"],
     service: imageService(),
   },
+
   experimental: {
     contentIntellisense: true,
     fonts: [
@@ -31,4 +36,6 @@ export default defineConfig({
     ],
     headingIdCompat: true,
   },
+
+  integrations: [react(), markdoc(), keystatic()],
 });
