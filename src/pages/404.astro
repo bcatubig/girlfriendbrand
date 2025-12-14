@@ -3,6 +3,27 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <h1>Not Found</h1>
-  <p>This isn't the page you're looking for</p>
+  <div class="not-found">
+    <h2>Not Found</h2>
+    <p>The page you're looking for does not exist</p>
+  </div>
 </BaseLayout>
+
+<style>
+  h2 {
+    font-size: 2rem;
+    color: var(--accent-300);
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .not-found {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    color: var(--text-50);
+    min-height: 100%;
+  }
+</style>
