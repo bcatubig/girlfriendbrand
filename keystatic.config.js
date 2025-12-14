@@ -2,8 +2,13 @@
 import { config, fields, collection } from "@keystatic/core";
 
 export default config({
+  ui: {
+    brand: {
+      name: "Girlfriend Brand",
+    },
+  },
   storage: {
-    kind: "local",
+    kind: "local", // TODO: convert to cloud
   },
   collections: {
     products: collection({
@@ -24,11 +29,16 @@ export default config({
         }),
         category: fields.select({
           label: "Product Category",
-          defaultValue: "designer",
+          defaultValue: "none",
           options: [
-            { label: "Designer", value: "designer" },
-            { label: "Developer", value: "developer" },
-            { label: "Product manager", value: "product-manager" },
+            { label: "None", value: "none" },
+            { label: "Accessories", value: "accessories" },
+            { label: "Chinos", value: "chinos" },
+            { label: "Hats", value: "hats" },
+            { label: "Jackets/Vests", value: "jackets-vests" },
+            { label: "Jeans", value: "jeans" },
+            { label: "Shirts", value: "shirts" },
+            { label: "T-Shirts", value: "tshirts" },
           ],
         }),
         price_usd: fields.number({
