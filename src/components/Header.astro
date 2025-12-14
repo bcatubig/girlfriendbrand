@@ -4,12 +4,24 @@ import Nav from "@components/Nav.astro";
 
 <header>
   <h1><a href="/">girlfriend brand</a></h1>
-
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-    </ul>
-  </nav>
+  <Nav />
 </header>
 
-<style></style>
+<style>
+  header {
+    background-color: var(--background-950);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--primary-50);
+  }
+
+  a:hover {
+    color: var(--accent-300);
+  }
+</style>
