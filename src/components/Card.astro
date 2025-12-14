@@ -1,44 +1,51 @@
 ---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
 
+interface Props {
+  product: CollectionEntry<"products">;
+}
+
+const { product } = Astro.props;
+
+const { cover, title, price_usd } = product.data;
 ---
 
 <article>
   <div class="header">
-    <h2>Some Product</h2>
+    <Image src={cover} alt={title} />
+
+    <div class="content">
+      <p>{title}</p>
+      <p>{price_usd}</p>
+    </div>
   </div>
 
-  <div class="content">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta non, sint
-      quod dicta et numquam ratione cupiditate quasi incidunt reprehenderit.
-    </p>
-  </div>
+  <style>
+    h2 {
+      font-size: 1.25rem;
+    }
+    article {
+      background: var(--background-50);
+      max-inline-size: 375px;
+      border-radius: 10px;
+      box-shadow: 8px 8px 0 var(--background-800);
+    }
+
+    .header {
+      background: var(--background-700);
+      color: var(--text-50);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      padding: 0.5rem 1rem;
+    }
+
+    .content {
+      padding: 1rem;
+      color: var(--text-950);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+  </style>
 </article>
-
-<style>
-  h2 {
-    font-size: 1.25rem;
-  }
-  article {
-    background: var(--background-50);
-    max-inline-size: 375px;
-    border-radius: 10px;
-    box-shadow: 8px 8px 0 var(--background-800);
-  }
-
-  .header {
-    background: var(--background-950);
-    color: var(--text-50);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 0.5rem 1rem;
-  }
-
-  .content {
-    padding: 1rem;
-    color: var(--text-950);
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.6;
-  }
-</style>
