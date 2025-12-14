@@ -1,11 +1,17 @@
 ---
 import Card from "@components/Card.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { getEntry } from "astro:content";
+
+const products = await getCollection("products");
 ---
 
 <BaseLayout title="Home">
   <div class="wrapper">
-    <Card product={} />
+    <div class="products">
+      {products.map((p) => <Card product={p} />)}
+    </div>
   </div>
 </BaseLayout>
 
@@ -14,6 +20,10 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     max-inline-size: 960px;
     padding-inline: 1rem;
     margin-inline: auto;
-    height: 100%;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 </style>
