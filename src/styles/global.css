@@ -145,7 +145,7 @@
 
   body {
     min-height: 100vh;
-    background: var(--background-400);
+    background: var(--background-500);
     color: var(--text-950);
   }
 }
