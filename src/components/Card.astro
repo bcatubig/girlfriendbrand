@@ -28,10 +28,9 @@ const { cover, title, price_usd } = product.data;
 
     article {
       background: var(--background-50);
-      max-inline-size: 375px;
+      max-inline-size: 350px;
       border-radius: 10px;
       box-shadow: 8px 8px 0 var(--background-800);
-      max-height:;
     }
 
     .content {
@@ -43,6 +42,7 @@ const { cover, title, price_usd } = product.data;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       object-fit: cover;
+      /* clip-path: inset(0px 40px 0px 40px); */
     }
 
     .title {
