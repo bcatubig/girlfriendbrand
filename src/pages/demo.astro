@@ -1,0 +1,658 @@
+---
+import "@styles/starwind.css";
+// src/pages/index.astro
+// Self Edge–inspired minimal homepage mock layout (Tailwind)
+// Assumes Tailwind is already set up in your Astro project.
+const nav = [
+  { label: "Shop", href: "#shop" },
+  { label: "Brands", href: "#brands" },
+  { label: "Journal", href: "#journal" },
+  { label: "Stores", href: "#stores" },
+  { label: "About", href: "#about" },
+];
+
+const collections = [
+  {
+    title: "Raw Denim",
+    href: "#shop",
+    img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Shirts",
+    href: "#shop",
+    img: "https://images.unsplash.com/photo-1520975958225-85d5b9f1ca79?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Outerwear",
+    href: "#shop",
+    img: "https://images.unsplash.com/photo-1520975808790-48f37b6ea5b3?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Footwear",
+    href: "#shop",
+    img: "https://images.unsplash.com/photo-1528701800489-20be3c49f7a9?auto=format&fit=crop&w=1200&q=80",
+  },
+];
+
+const products = Array.from({ length: 8 }).map((_, i) => ({
+  name: `Product ${i + 1}`,
+  brand: "Local Label",
+  price: `$${(185 + i * 10).toFixed(0)}`,
+  img: `https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1200&q=80&sig=${i + 1}`,
+}));
+
+const journal = [
+  {
+    title: "Denim Care Guide",
+    teaser: "How to wash, wear, and keep indigo looking sharp.",
+    img: "https://images.unsplash.com/photo-1473181488821-2d23949a045a?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Fit Notes: Straight vs Tapered",
+    teaser: "A quick breakdown of silhouettes and sizing.",
+    img: "https://images.unsplash.com/photo-1520975741248-8b6fa1b1a9ab?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Maker Spotlight",
+    teaser: "Meet the hands behind the stitch.",
+    img: "https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80",
+  },
+];
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Local Clothing Co</title>
+  </head>
+
+  <body class="bg-white text-neutral-900 antialiased">
+    <!-- Utility bar -->
+    <div class="border-b border-neutral-200">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-center px-4 py-2 text-xs tracking-wide text-neutral-600"
+      >
+        Free local pickup · Small-batch drops · Free exchanges
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-40 border-b border-neutral-200 bg-white/90 backdrop-blur"
+    >
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4"
+      >
+        <a href="#" class="text-sm font-semibold tracking-[0.25em] uppercase">
+          Local Label
+        </a>
+
+        <nav
+          class="hidden items-center gap-6 text-xs tracking-[0.2em] text-neutral-700 uppercase md:flex"
+        >
+          {
+            nav.map((item) => (
+              <a href={item.href} class="hover:text-neutral-950">
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button
+            class="rounded-md px-2 py-1 text-xs tracking-[0.2em] text-neutral-700 uppercase hover:text-neutral-950"
+          >
+            Search
+          </button>
+          <a
+            href="#shop"
+            class="rounded-md px-2 py-1 text-xs tracking-[0.2em] text-neutral-700 uppercase hover:text-neutral-950"
+          >
+            Cart
+          </a>
+
+          <button
+            class="rounded-md border border-neutral-200 px-2 py-1 text-xs tracking-[0.2em] uppercase md:hidden"
+          >
+            Menu
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="mx-auto max-w-6xl px-4 pt-8">
+        <div class="overflow-hidden rounded-2xl border border-neutral-200">
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1800&q=80"
+              alt="Editorial denim shot"
+              class="h-[52vh] w-full object-cover md:h-[62vh]"
+              loading="eager"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-black/10 to-transparent"
+            >
+            </div>
+
+            <div class="absolute right-0 bottom-0 left-0 p-6 md:p-10">
+              <p class="text-xs tracking-[0.28em] text-white/90 uppercase">
+                Winter drop
+              </p>
+              <h1
+                class="mt-2 max-w-2xl text-3xl font-semibold tracking-tight text-white md:text-5xl"
+              >
+                Heavyweight denim & workwear
+              </h1>
+              <p class="mt-3 max-w-xl text-sm leading-relaxed text-white/85">
+                Small-batch staples built to wear in—focused on fabric, fit, and
+                construction.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a
+                  href="#shop"
+                  class="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-xs font-semibold tracking-[0.2em] text-neutral-950 uppercase hover:bg-neutral-100"
+                >
+                  Shop new arrivals
+                </a>
+                <a
+                  href="#lookbook"
+                  class="inline-flex items-center justify-center rounded-xl border border-white/60 bg-white/0 px-5 py-3 text-xs font-semibold tracking-[0.2em] text-white uppercase hover:bg-white/10"
+                >
+                  Explore lookbook
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Collections -->
+      <section class="mx-auto max-w-6xl px-4 pt-12">
+        <div class="flex items-end justify-between gap-4">
+          <h2
+            class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+          >
+            Collections
+          </h2>
+          <a
+            href="#shop"
+            class="text-xs tracking-[0.2em] text-neutral-700 uppercase hover:text-neutral-950"
+          >
+            View all
+          </a>
+        </div>
+
+        <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            collections.map((c) => (
+              <a
+                href={c.href}
+                class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white"
+              >
+                <div class="relative aspect-[4/5]">
+                  <img
+                    src={c.img}
+                    alt={c.title}
+                    class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+                  <div class="absolute right-0 bottom-0 left-0 p-4">
+                    <p class="text-xs font-semibold tracking-[0.22em] text-white uppercase">
+                      {c.title}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- New Arrivals -->
+      <section id="shop" class="mx-auto max-w-6xl px-4 pt-14">
+        <div class="flex items-end justify-between gap-8">
+          <div>
+            <h2
+              class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+            >
+              New arrivals
+            </h2>
+            <p class="mt-2 max-w-xl text-sm text-neutral-700">
+              Clean essentials. Minimal branding. Built for daily wear.
+            </p>
+          </div>
+          <a
+            href="#"
+            class="hidden text-xs tracking-[0.2em] text-neutral-700 uppercase hover:text-neutral-950 sm:block"
+          >
+            View all
+          </a>
+        </div>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            products.map((p) => (
+              <a
+                href="#"
+                class="group rounded-2xl border border-neutral-200 bg-white p-3 hover:border-neutral-300"
+              >
+                <div class="overflow-hidden rounded-xl bg-neutral-100">
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="mt-3">
+                  <p class="text-xs tracking-widest text-neutral-600 uppercase">
+                    {p.brand}
+                  </p>
+                  <div class="mt-1 flex items-start justify-between gap-3">
+                    <h3 class="text-sm font-medium text-neutral-900">
+                      {p.name}
+                    </h3>
+                    <p class="text-sm text-neutral-900">{p.price}</p>
+                  </div>
+                  <p class="mt-2 text-xs tracking-[0.18em] text-neutral-700 uppercase underline-offset-4 group-hover:underline">
+                    View
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+
+        <!-- Promo band -->
+        <div
+          class="mt-10 rounded-2xl border border-neutral-200 bg-neutral-50 p-6 md:p-8"
+        >
+          <div
+            class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center"
+          >
+            <div>
+              <p
+                class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+              >
+                Limited run
+              </p>
+              <p class="mt-2 text-sm text-neutral-800">
+                New drop Friday. Free local pickup and easy exchanges.
+              </p>
+            </div>
+            <a
+              href="#shop"
+              class="inline-flex items-center justify-center rounded-xl bg-neutral-900 px-5 py-3 text-xs font-semibold tracking-[0.2em] text-white uppercase hover:bg-neutral-800"
+            >
+              Shop the drop
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Craft Story -->
+      <section class="mx-auto max-w-6xl px-4 pt-14">
+        <div
+          class="grid gap-6 rounded-2xl border border-neutral-200 bg-white p-6 md:grid-cols-2 md:p-10"
+        >
+          <div class="overflow-hidden rounded-2xl border border-neutral-200">
+            <img
+              src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=1600&q=80"
+              alt="Craft detail"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="flex flex-col justify-center">
+            <p
+              class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+            >
+              Craft
+            </p>
+            <h2 class="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">
+              Craftsmanship matters
+            </h2>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-700">
+              We prioritize fabric, construction, and fit. Small-batch
+              production, honest materials, and details you’ll notice over time.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              {
+                [
+                  "Locally made",
+                  "Small-batch",
+                  "Sustainable fabrics",
+                  "Free exchanges",
+                ].map((chip) => (
+                  <span class="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs tracking-[0.18em] text-neutral-700 uppercase">
+                    {chip}
+                  </span>
+                ))
+              }
+            </div>
+            <a
+              href="#about"
+              class="mt-7 inline-flex w-fit items-center gap-2 text-xs font-semibold tracking-[0.2em] text-neutral-900 uppercase underline-offset-4 hover:underline"
+            >
+              Read the story <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Brand Spotlight -->
+      <section id="brands" class="mx-auto max-w-6xl px-4 pt-14">
+        <div class="flex items-end justify-between gap-4">
+          <h2
+            class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+          >
+            Brand spotlight
+          </h2>
+          <a
+            href="#"
+            class="text-xs tracking-[0.2em] text-neutral-700 uppercase hover:text-neutral-950"
+          >
+            All brands
+          </a>
+        </div>
+
+        <div
+          class="mt-5 flex gap-3 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch]"
+        >
+          {
+            [
+              "Atelier",
+              "Foundry",
+              "North Mill",
+              "Rivet",
+              "Cedar",
+              "Indigo Lab",
+              "Union",
+              "Workshop",
+            ].map((b) => (
+              <a
+                href="#shop"
+                class="shrink-0 rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs tracking-[0.2em] text-neutral-800 uppercase hover:border-neutral-300"
+              >
+                {b}
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Lookbook -->
+      <section id="lookbook" class="mx-auto max-w-6xl px-4 pt-14">
+        <div class="flex items-end justify-between gap-4">
+          <h2
+            class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+          >
+            Lookbook
+          </h2>
+          <a
+            href="#shop"
+            class="text-xs tracking-[0.2em] text-neutral-700 uppercase hover:text-neutral-950"
+          >
+            Shop the looks
+          </a>
+        </div>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            Array.from({ length: 6 }).map((_, i) => (
+              <a
+                href="#shop"
+                class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white"
+              >
+                <img
+                  src={`https://images.unsplash.com/photo-1520975741248-8b6fa1b1a9ab?auto=format&fit=crop&w=1600&q=80&sig=${50 + i}`}
+                  alt={`Look ${i + 1}`}
+                  class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Journal -->
+      <section id="journal" class="mx-auto max-w-6xl px-4 pt-14">
+        <div class="flex items-end justify-between gap-4">
+          <h2
+            class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+          >
+            Journal
+          </h2>
+          <a
+            href="#"
+            class="text-xs tracking-[0.2em] text-neutral-700 uppercase hover:text-neutral-950"
+          >
+            All posts
+          </a>
+        </div>
+
+        <div class="mt-6 grid gap-4 lg:grid-cols-3">
+          {
+            journal.map((j) => (
+              <a
+                href="#"
+                class="group rounded-2xl border border-neutral-200 bg-white p-3 hover:border-neutral-300"
+              >
+                <div class="overflow-hidden rounded-xl bg-neutral-100">
+                  <img
+                    src={j.img}
+                    alt={j.title}
+                    class="aspect-[16/11] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="mt-4">
+                  <h3 class="text-base font-semibold tracking-tight text-neutral-900">
+                    {j.title}
+                  </h3>
+                  <p class="mt-2 text-sm text-neutral-700">{j.teaser}</p>
+                  <p class="mt-3 text-xs font-semibold tracking-[0.2em] text-neutral-900 uppercase underline-offset-4 group-hover:underline">
+                    Read
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Stores -->
+      <section id="stores" class="mx-auto max-w-6xl px-4 pt-14">
+        <div
+          class="grid gap-6 rounded-2xl border border-neutral-200 bg-white p-6 md:grid-cols-2 md:p-10"
+        >
+          <div class="overflow-hidden rounded-2xl border border-neutral-200">
+            <img
+              src="https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1600&q=80"
+              alt="Store interior"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="flex flex-col justify-center">
+            <p
+              class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+            >
+              Visit
+            </p>
+            <h2 class="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">
+              Local pickup & studio
+            </h2>
+            <div class="mt-3 space-y-2 text-sm text-neutral-700">
+              <p>
+                <span class="font-medium text-neutral-900">Address:</span> 123 Main
+                St, Your City
+              </p>
+              <p>
+                <span class="font-medium text-neutral-900">Hours:</span> Thu–Sun,
+                12–6
+              </p>
+              <p>
+                <span class="font-medium text-neutral-900">Pickup:</span> Same-day
+                for in-stock items
+              </p>
+            </div>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="#"
+                class="inline-flex items-center justify-center rounded-xl bg-neutral-900 px-5 py-3 text-xs font-semibold tracking-[0.2em] text-white uppercase hover:bg-neutral-800"
+              >
+                Get directions
+              </a>
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-5 py-3 text-xs font-semibold tracking-[0.2em] text-neutral-900 uppercase hover:bg-neutral-50"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="mx-auto max-w-6xl px-4 pt-14">
+        <div
+          class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6 md:p-10"
+        >
+          <p
+            class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+          >
+            About
+          </p>
+          <h2 class="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">
+            Built locally. Made to last.
+          </h2>
+          <p class="mt-3 max-w-3xl text-sm leading-relaxed text-neutral-700">
+            We design with restraint and build with intention—prioritizing
+            fabrics, hardware, and fit. Each run is small, measured, and made
+            for people who wear their clothes hard.
+          </p>
+        </div>
+      </section>
+
+      <!-- Email signup -->
+      <section id="contact" class="mx-auto max-w-6xl px-4 py-14">
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6 md:p-10">
+          <p
+            class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+          >
+            Newsletter
+          </p>
+          <h2 class="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">
+            Early access to drops + restocks
+          </h2>
+          <p class="mt-2 text-sm text-neutral-700">
+            No spam. Unsubscribe anytime.
+          </p>
+
+          <form class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <input
+              type="email"
+              placeholder="Email address"
+              class="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none placeholder:text-neutral-400 focus:border-neutral-400"
+              required
+            />
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center rounded-xl bg-neutral-900 px-5 py-3 text-xs font-semibold tracking-[0.2em] text-white uppercase hover:bg-neutral-800"
+            >
+              Join
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-200">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-4">
+        <div>
+          <p class="text-sm font-semibold tracking-[0.25em] uppercase">
+            Local Label
+          </p>
+          <p class="mt-3 text-sm text-neutral-700">
+            Minimal essentials. Small-batch runs. Built to wear in.
+          </p>
+        </div>
+
+        <div class="space-y-2 text-sm">
+          <p
+            class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+          >
+            Shop
+          </p>
+          <a href="#shop" class="block text-neutral-800 hover:text-neutral-950"
+            >New Arrivals</a
+          >
+          <a href="#shop" class="block text-neutral-800 hover:text-neutral-950"
+            >Denim</a
+          >
+          <a href="#shop" class="block text-neutral-800 hover:text-neutral-950"
+            >Outerwear</a
+          >
+          <a href="#shop" class="block text-neutral-800 hover:text-neutral-950"
+            >Footwear</a
+          >
+        </div>
+
+        <div class="space-y-2 text-sm">
+          <p
+            class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+          >
+            Customer care
+          </p>
+          <a href="#" class="block text-neutral-800 hover:text-neutral-950"
+            >Shipping & Returns</a
+          >
+          <a href="#" class="block text-neutral-800 hover:text-neutral-950"
+            >Sizing</a
+          >
+          <a href="#" class="block text-neutral-800 hover:text-neutral-950"
+            >Contact</a
+          >
+        </div>
+
+        <div class="space-y-2 text-sm">
+          <p
+            class="text-xs font-semibold tracking-[0.28em] text-neutral-600 uppercase"
+          >
+            Social
+          </p>
+          <a href="#" class="block text-neutral-800 hover:text-neutral-950"
+            >Instagram</a
+          >
+          <a
+            href="#journal"
+            class="block text-neutral-800 hover:text-neutral-950">Journal</a
+          >
+          <a
+            href="#stores"
+            class="block text-neutral-800 hover:text-neutral-950">Stores</a
+          >
+        </div>
+      </div>
+
+      <div class="border-t border-neutral-200">
+        <div
+          class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-neutral-600 md:flex-row md:items-center md:justify-between"
+        >
+          <p>© {new Date().getFullYear()} Local Label</p>
+          <p class="tracking-[0.18em] uppercase">Made in Your City</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
